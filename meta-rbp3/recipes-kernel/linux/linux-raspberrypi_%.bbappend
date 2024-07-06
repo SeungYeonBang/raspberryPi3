@@ -1,10 +1,13 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://config.txt"
+SRC_URI += " \
+        file://config.txt \
+        file://cmdline.txt \
+"
 
 KBUILD_DEFCONFIG = "bcmrpi3_defconfig"
 
-
-do_configure:append() {
-    cat ${WORKDIR}/config.txt >> ${BOOTDIR}/config.txt
+do_deploy:append() {
+    install -m 0644 ${WORKDIR}/config.txt ${DEPLOYDIR}/config.txt
+    install -m 0644 ${WORKDIR}/cmdline.txt ${DEPLOYDIR}/cmdline.txt
 }

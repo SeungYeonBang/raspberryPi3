@@ -1,7 +1,9 @@
 #!/bin/sh
 
 export MACHINE=my-rbp3
+#export MACHINE=raspberrypi3-64
 export IMAGE=core-image-rbp3
+#export IMAGE=core-image-base
 export DISTRO=poky
 
 export YOCTO_DIR=`pwd`
