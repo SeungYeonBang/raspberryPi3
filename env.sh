@@ -14,6 +14,7 @@ alias  cdi='cd $YOCTO_DIR/build/tmp/deploy/images/$MACHINE'
 alias  cdm='cd $YOCTO_DIR/meta-rbp3/recipes-rbp3/streaming-service/files/src'
 alias  cleank='cd $YOCTO_DIR/build; bitbake -c cleansstate linux-raspberrypi'
 alias  buildi='cd $YOCTO_DIR/build; bitbake $IMAGE'
+alias  flashi='$YOCTO_DIR/deploy.sh'
 
 function make_local_conf() {
 cat << EOF > conf/local.conf
@@ -96,5 +97,6 @@ command:
     cdm    : goto source directory
     cleank : build clean kernel
     buildi : build image
+    flashi : sdcard image flash
 EOF
 
