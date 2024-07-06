@@ -1,0 +1,61 @@
+#! /bin/sh
+DAEMON=/home/root/streaming/StreamingService
+DESC=StreamingService
+
+function enable_coredump()
+{
+    mkdir -p cores
+    rm -rf /home/root/cores/*
+    ulimit -c unlimited
+    echo "/home/root/cores/core.%E" >  /proc/sys/kernel/core_pattern
+}
+
+function kill_process()
+{
+    killall $DESC 2>/dev/null
+    for (( ii=0; ii<10; ii++ ))
+    do
+        sleep 0.2
+        pid=`pidof $DESC`
+        if [ "x$pid" = "x" ]; then
+            echo -n "Success to stop : "
+            return
+        fi
+    done
+
+    echo -n "kill force : "
+    killall -9 $DESC 2>/dev/null
+    sleep 0.2
+}
+
+export XDG_RUNTIME_DIR=/run/user/${UID}
+unset DISPLAY
+
+test -x $DAEMON || exit 0
+
+case "$1" in
+  start)
+      echo -n "Starting $DESC: "
+      [ -e /home/root/.test ] && enable_coredump
+      $DAEMON -i < /dev/null > /dev/null 2>&1 &
+      echo "[OK]"
+      ;;
+  stop)
+      echo -n "Stopping $DESC: "
+      kill_process
+      echo "[OK]"
+      ;;
+  restart)
+      echo -n "Restarting $DESC: "
+      kill_process
+      $DAEMON < /dev/null > /dev/null 2>&1 &
+      echo "[OK]"
+      ;;
+  *)
+      N=/etc/init.d/streaming-service
+      echo "Usage: $N {start|stop|restart}" >&2
+      exit 1
+      ;;
+esac
+
+exit 0
