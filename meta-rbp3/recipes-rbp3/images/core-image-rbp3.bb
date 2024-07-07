@@ -29,6 +29,7 @@ IMAGE_INSTALL:append = " tcpdump"
 IMAGE_INSTALL:append = " libusb1"
 
 IMAGE_INSTALL:append = " gstreamer1.0"
+IMAGE_INSTALL:append = " gstreamer1.0-omx"
 IMAGE_INSTALL:append = " gstreamer1.0-plugins-good"
 IMAGE_INSTALL:append = " gstreamer1.0-plugins-base"
 
