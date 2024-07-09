@@ -45,8 +45,8 @@ else
     bzip2 -dkf $tmpdir/$actual_file
 fi
 
-actual_wic_file=`${actual_file%????}`
-echo "Flash from $tmpdir"
+actual_wic_file=${actual_file%????}
+echo "Flash from $tmpdir/$actual_wic_file"
 sudo dd if=$tmpdir/$actual_wic_file of=$output_file bs=4096 status=progress && sync
 
 if [ $skip_remove -eq 0 ]; then
