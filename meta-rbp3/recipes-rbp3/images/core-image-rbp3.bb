@@ -14,10 +14,16 @@ QB_MEM = "-m 512"
 IMAGE_FSTYPES:append = " rpi-sdimg"
 
 # Enable Debug feature
-EXTRA_IMAGE_FEATURES:append = " dbg-pkgs tools-debug"
+EXTRA_IMAGE_FEATURES:append = " dbg-pkgs tools-debug ssh-server-dropbear"
 
 IMAGE_INSTALL:append = " less procps"
 IMAGE_INSTALL:append = " util-linux"
+
+IMAGE_INSTALL:append = " packagegroup-core-boot"
+IMAGE_INSTALL:append = " packagegroup-base-extended"
+IMAGE_INSTALL:append = " v4l-utils"
+IMAGE_INSTALL:append = " wpa-supplicant"
+#IMAGE_INSTALL:append = " linux-firmware-rpidistro-bcm43430"
 
 IMAGE_INSTALL:append = " ldd"
 IMAGE_INSTALL:append = " dtc"

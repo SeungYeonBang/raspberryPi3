@@ -28,7 +28,7 @@ do_install() {
     install ${WORKDIR}/src/out/StreamingService ${D}/home/root/streaming
 
     cp -rf ${WORKDIR}/src/res/fonts  ${D}/home/root/streaming
-    cp -rf ${WORKDIR}/src/res/images  ${D}/home/root/streaming
+#    cp -rf ${WORKDIR}/src/res/images  ${D}/home/root/streaming
 
     install -d ${D}${sysconfdir}/init.d
     install -m 0755 ${WORKDIR}/src/res/${INITSCRIPT_NAME}.init ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}

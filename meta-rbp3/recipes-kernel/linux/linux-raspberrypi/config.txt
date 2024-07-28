@@ -3,3 +3,5 @@ dtoverlay=pi3-disable-bt
 hdmi_force_hotplug=1
 hdmi_group=1
 hdmi_mode=16
+start_x=1
+gpu_mem=128
