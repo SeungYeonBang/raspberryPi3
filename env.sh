@@ -40,6 +40,10 @@ PARALLEL_MAKE = "-j 10"
 
 ENABLE_UART = "1"
 ENABLE_KGBD = "1"
+ENABLE_I2C = "1"
+ENABLE_SPI_BUS = "1"
+RPI_USE_U_BOOT = "1"
+ENABLE_CAMERA = "1"
 
 LICENSE_FLAGS_ACCEPTED:append = " commercial"
 
@@ -87,7 +91,7 @@ fi
 
 cat <<EOF
 
-[[[ MetaThermo-IMX8M Build ]]]
+[[[ RaspberryPi3 Build ]]]
 
 You can build image 
     # bitbake $IMAGE
