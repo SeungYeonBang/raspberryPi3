@@ -22,6 +22,7 @@ IMAGE_INSTALL:append = " util-linux"
 IMAGE_INSTALL:append = " packagegroup-core-boot"
 IMAGE_INSTALL:append = " packagegroup-base-extended"
 IMAGE_INSTALL:append = " v4l-utils"
+IMAGE_INSTALL:append = " libcamera"
 IMAGE_INSTALL:append = " wpa-supplicant"
 #IMAGE_INSTALL:append = " linux-firmware-rpidistro-bcm43430"
 
